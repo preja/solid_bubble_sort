@@ -22,23 +22,26 @@ def bubble_sort(arr):
 
 arr = [5, 3, 4, 1, 2]
 print("List sorted with bubble sort in ascending order: ", bubble_sort(arr))
-#solid style verison
+#solid style verison without optimalization
 
 set_to_sort = [5, 3, 4, 1, 2]
 def get_length() -> int:
     return len(set_to_sort)
 
-def is_current_element_grater_then_next(currnt_element_index: int, next_element_index:int) -> bool:
-    return set_to_sort[currnt_element_index] > set_to_sort[next_element_index]
+def is_swap_needed(currnt_element_index: int) -> bool:
+    return set_to_sort[currnt_element_index] > set_to_sort[currnt_element_index+1]
 
 def swap_two_elements_by_index(currnt_element_index: int, next_element_index:int) -> None:
       set_to_sort[currnt_element_index], set_to_sort[next_element_index] = set_to_sort[next_element_index], set_to_sort[currnt_element_index]
-  
+
+def swap(currnt_element_index:int):
+    swap_two_elements_by_index(currnt_element_index, currnt_element_index+1)
+      
 def bring_the_gratest_element_to_the_end_of_set(iteration_number):
     current_subset_length = get_length()-iteration_number-1
     for j in range(0, current_subset_length):
-        if is_current_element_grater_then_next(j, j+1):
-            swap_two_elements_by_index(j, j+1)
+        if is_swap_needed(j):
+            swap(j)
     print(set_to_sort);       
         
 def bubble_sort_solid():
