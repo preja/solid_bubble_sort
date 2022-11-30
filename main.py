@@ -22,35 +22,50 @@ def bubble_sort(arr):
 
 arr = [5, 3, 4, 1, 2]
 print("List sorted with bubble sort in ascending order: ", bubble_sort(arr))
-#solid style verison without optimalization
+
+# solid style verison without optimalization
 
 set_to_sort = [5, 3, 4, 1, 2]
+still_need_to_sort = False
+
+
+
 def get_length() -> int:
     return len(set_to_sort)
+
 
 def is_swap_needed(currnt_element_index: int) -> bool:
     return set_to_sort[currnt_element_index] > set_to_sort[currnt_element_index+1]
 
-def swap_two_elements_by_index(currnt_element_index: int, next_element_index:int) -> None:
-      set_to_sort[currnt_element_index], set_to_sort[next_element_index] = set_to_sort[next_element_index], set_to_sort[currnt_element_index]
 
-def swap(currnt_element_index:int):
+def swap_two_elements_by_index(currnt_element_index: int, next_element_index: int) -> None:
+    set_to_sort[currnt_element_index], set_to_sort[next_element_index] = set_to_sort[next_element_index], set_to_sort[currnt_element_index]
+
+
+def swap(currnt_element_index: int):
     swap_two_elements_by_index(currnt_element_index, currnt_element_index+1)
-      
+
+
 def bring_the_greatest_element_to_the_end_of_set(iteration_number):
+    global still_need_to_sort
     current_subset_length = get_length()-iteration_number-1
-    for j in range(0, current_subset_length):
-        if is_swap_needed(j):
-            swap(j)
-    print(set_to_sort);       
-        
+    for current_index in range(0, current_subset_length):
+        if is_swap_needed(current_index):
+            still_need_to_sort = True
+            swap(current_index)
+    print(set_to_sort)
+
+
 def bubble_sort_solid():
     for iteration_number in range(0, get_length()-1):
         bring_the_greatest_element_to_the_end_of_set(iteration_number)
-   
-    
+        print(still_need_to_sort)
+        if not still_need_to_sort:
+            break
+    return set_to_sort
 
-print("List sorted with bubble sort solid in ascending order: ", set_to_sort())
+
+print("List sorted with bubble sort solid in ascending order: ", bubble_sort_solid())
 
 
 # Output: List sorted with bubble sort in ascending order:  [1, 2, 3, 4, 5]
