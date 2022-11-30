@@ -1,0 +1,1 @@
+Simple implementation of bubble sort in more elegant S fom SOLID and with more minigfull names in code.

@@ -37,7 +37,7 @@ def swap_two_elements_by_index(currnt_element_index: int, next_element_index:int
 def swap(currnt_element_index:int):
     swap_two_elements_by_index(currnt_element_index, currnt_element_index+1)
       
-def bring_the_gratest_element_to_the_end_of_set(iteration_number):
+def bring_the_greatest_element_to_the_end_of_set(iteration_number):
     current_subset_length = get_length()-iteration_number-1
     for j in range(0, current_subset_length):
         if is_swap_needed(j):
@@ -46,11 +46,11 @@ def bring_the_gratest_element_to_the_end_of_set(iteration_number):
         
 def bubble_sort_solid():
     for iteration_number in range(0, get_length()-1):
-        bring_the_gratest_element_to_the_end_of_set(iteration_number)
-    return arr    
+        bring_the_greatest_element_to_the_end_of_set(iteration_number)
+   
     
 
-print("List sorted with bubble sort solid in ascending order: ", bubble_sort_solid())
+print("List sorted with bubble sort solid in ascending order: ", set_to_sort())
 
 
 # Output: List sorted with bubble sort in ascending order:  [1, 2, 3, 4, 5]
