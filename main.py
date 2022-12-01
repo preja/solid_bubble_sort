@@ -29,7 +29,6 @@ set_to_sort = [5, 3, 4, 1, 2]
 still_need_to_sort = False
 
 
-
 def get_length() -> int:
     return len(set_to_sort)
 
@@ -50,9 +49,8 @@ def set_still_need_sort():
     global still_need_to_sort
     still_need_to_sort = True
 
-    
+
 def bring_the_greatest_element_to_the_end_of_set(iteration_number):
-   
     current_subset_length = get_length()-iteration_number-1
     for current_index in range(0, current_subset_length):
         if is_swap_needed(current_index):
