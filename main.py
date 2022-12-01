@@ -46,7 +46,7 @@ def swap(currnt_element_index: int):
     swap_two_elements_by_index(currnt_element_index, currnt_element_index+1)
 
 
-def still_need_sort():
+def set_still_need_sort():
     global still_need_to_sort
     still_need_to_sort = True
 
@@ -56,7 +56,7 @@ def bring_the_greatest_element_to_the_end_of_set(iteration_number):
     current_subset_length = get_length()-iteration_number-1
     for current_index in range(0, current_subset_length):
         if is_swap_needed(current_index):
-            still_need_sort()
+            set_still_need_sort()
             swap(current_index)
     print(set_to_sort)
 
